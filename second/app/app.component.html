@@ -1,0 +1,35 @@
+<div class="container">
+  <!-- without alias
+    <app-cockpit
+      (servercreated)="cretaeServer($event)"
+      (blueprintServerCreated)="createBluePrintServer($event)">
+    </app-cockpit>
+  -->
+   <app-cockpit
+      (screated)="cretaeServer($event)"
+      (bpcreated)="createBluePrintServer($event)">
+   </app-cockpit>
+  <br/>
+  <div class="row">
+    <div class="col-xs-12">
+
+       <!-- without alias
+        <app-server-element 
+          *ngFor="let serverElement of serverElements"
+          [element]="serverElement">
+        </app-server-element> -->
+
+        <app-server-element 
+          *ngFor="let serverElement of serverElements"
+          [serverElement]="serverElement">
+          <div class="panel-heading">{{serverElement.name}} </div>
+          <div class="panel-body">
+            <p>
+              <strong *ngIf="serverElement.type === 'server'">{{serverElement.content}}</strong>
+              <em *ngIf="serverElement.type === 'blueprint'">{{serverElement.content}}</em>
+            </p>
+          </div>
+        </app-server-element> 
+    </div>
+  </div>
+</div>

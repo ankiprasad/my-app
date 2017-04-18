@@ -1,0 +1,40 @@
+<div class="container" *appMyCreateCustomDirective="status">
+    <div class="row">
+      <div class="col-xs-12">
+        <ul>
+          <li *ngFor="let number of numbers">
+              {{number}}
+          </li>
+        </ul>
+      </div>
+    </div>  
+</div>
+
+<br/>
+
+<div class="container" bgColor>
+    <div class="row">
+      <div class="col-xs-12">
+        <button class="btn btn-primary" (click)="showNmbers()">{{buttonText}}</button>
+        <br/>
+        <div *ngIf="!onlyOdd">
+          <ul *ngFor="let number of numbers"
+              [ngClass]="{odd: number %2 === 0}"
+              [ngStyle]="{background: number % 2 === 0 ? 'yellow' : 'red'}">
+            <li *ngIf="number%2 === 0">
+                {{number}}
+            </li>
+          </ul>
+        </div>  
+        <div *ngIf="onlyOdd">
+          <ul *ngFor="let number of numbers"
+             [ngClass]="{even: number %2 !== 0}"
+             [ngStyle]="{background: number % 2 === 0 ? 'yellow' : 'red'}"> 
+            <li *ngIf="number % 2 !== 0">
+                {{number}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>  
+</div>

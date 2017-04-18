@@ -1,0 +1,21 @@
+<h1>I am server component</h1>
+
+
+<h4>
+    <strong>String interpolation</strong>
+</h4>
+<!-- String interpolation--> 
+{{"Server "+1}} with {{ serverId }} is {{ getServerStatus() }}
+
+
+<h4>Assignment</h4>
+<!-- Assignment -->
+<input type="text" [(ngModel)]="userName" /><br/>
+<p>{{userName}}</p>
+
+<button [disabled]="!userName" (click)="reset()">Enter</button>
+
+<br/>
+<br/><br/>
+
+

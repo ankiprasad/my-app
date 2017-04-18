@@ -1,0 +1,88 @@
+<p>servers works!</p>
+<h4>
+    <strong>Property binding</strong>
+</h4>
+<!-- Property binding -->
+<button class="btn btn-primary" [disabled]="!isDisabled">Apply</button><br/><br/>
+
+<h4>
+    <strong>Event binding</strong>
+</h4>
+<!-- Event binding -->
+<button class="btn btn-primary" (click)="createServer()">cretae a server1</button><br/><br/>
+<p>{{ serverStatus }}</p>
+
+<h4>
+    <strong>Event binding with data</strong>
+</h4>
+<!-- Event binding with data -->
+<label>Enter value</label>
+<input type="text" (input)="getData($event)">
+{{ "Result:  "+data }}
+
+<br/>
+<br/>
+<h4>
+    <strong>Twoway binding</strong>
+</h4>
+<!-- Twoway binding -->
+<label>Enter value</label>
+<input type="text" [(ngModel)]="serverName">
+{{ "Result:  "+serverName }}
+
+<br/>
+<br/>
+
+
+<h4>
+    <strong>*ngIf </strong>
+</h4>
+<!-- *ngIf -->
+<button class="btn btn-primary" (click)="createServer()">cretae a server2</button><br/><br/>
+<p *ngIf="isServerCreated">{{ serverStatus }}</p>
+
+<br/>
+<br/>
+
+<h4>
+    <strong>*ngIf else</strong>
+</h4>
+<!-- *ngIf else -->
+<button class="btn btn-primary" (click)="createServer()">cretae a server3</button><br/><br/>
+<p *ngIf="isServerCreated; else noServer">{{ serverStatus }}</p>
+<ng-template #noServer>
+  <p>No server is created.</p>
+</ng-template>
+<br/>
+<br/>
+
+<h4>
+    <strong>ngStyle</strong>
+</h4>
+<!-- ngStyle -->
+<p [ngStyle]="{backgroundColor: getColor()}">
+    I am changing
+</p>
+<br/>
+<br/>
+
+<h4>
+    <strong>ngClass</strong>
+</h4>
+<!-- ngClass -->
+<p  [ngStyle]="{backgroundColor: getColor()}" [ngClass]="{online: this.status === 'online'}">
+    I am changing
+</p>
+<br/>
+<br/>
+
+<h4>
+    <strong>ngFor</strong>
+</h4>
+<!-- ngFor -->
+<p  *ngFor="let server of servers; let i = index">
+   {{ "s.no: "+i}} - {{server}}
+</p>
+<br/>
+<br/>
+<app-server></app-server>
